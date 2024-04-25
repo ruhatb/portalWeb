@@ -3,11 +3,13 @@ package workintech.Portal.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "like")
+@Table(name = "likes")
 public class Like {
 
     @Id
@@ -15,9 +17,12 @@ public class Like {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "post_id")
-    private Long postId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
+
 }
