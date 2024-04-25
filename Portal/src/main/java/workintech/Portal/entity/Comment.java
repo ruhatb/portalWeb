@@ -36,7 +36,6 @@ public class Comment {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "comment")
-    private List<Like> likes;
+
 
 }

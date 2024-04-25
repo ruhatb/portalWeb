@@ -24,8 +24,9 @@ public class Post {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
+
 
     @OneToOne(mappedBy = "post")
     private Like like;
