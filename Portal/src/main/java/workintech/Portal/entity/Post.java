@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "post")
+@Table(name = "Post")
 @AllArgsConstructor
 public class Post {
 
@@ -17,21 +17,15 @@ public class Post {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+
 
     @Column(name = "text")
     private String text;
 
+
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
-
-    @OneToOne(mappedBy = "post")
-    private Like like;
-
-    @OneToMany(mappedBy = "post")
-    private List<Comment> comments;
-
 }
+
+

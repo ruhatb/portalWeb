@@ -5,11 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user",schema = "portal")
+@Table(name = "User",schema = "portal")
 public class User {
 
     @Id
@@ -23,4 +25,8 @@ public class User {
 
     @Column(name = "mail")
     private String mail;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Post> posts;
+
 }

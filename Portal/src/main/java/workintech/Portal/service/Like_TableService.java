@@ -1,4 +1,4 @@
 package workintech.Portal.service;
 
-public interface LikerService {
+public interface Like_TableService {
 }

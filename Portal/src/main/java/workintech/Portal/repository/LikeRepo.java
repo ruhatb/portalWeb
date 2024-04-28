@@ -1,7 +1,7 @@
 package workintech.Portal.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import workintech.Portal.entity.Like;
+import workintech.Portal.entity.Like_Table;
 
-public interface LikeRepo extends JpaRepository<Like, Long> {
+public interface LikeRepo extends JpaRepository<Like_Table, Long> {
 }

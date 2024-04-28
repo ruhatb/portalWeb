@@ -1,3 +1,4 @@
+
 package workintech.Portal.entity;
 
 import jakarta.persistence.*;
@@ -7,27 +8,20 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Entity
-@Table(name = "like")
-public class Like {
+@Table(name = "Like")
+public class Like_Table {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "post_id")
-    private Long postId;
-
-    @Column(name = "user_id")
-    private Long userId;
-
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private  User user;
-
-    @OneToOne
-    @Column(name = "post_id", insertable = false, updatable = false)
+    @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Post post;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
 }
